@@ -1,0 +1,59 @@
+\documentclass{beamer}
+\usepackage{default}
+\usepackage{listings}
+\usepackage{graphicx}
+% colors (theme=...): red (default), blue, cyan, orange, green
+\mode<presentation>
+\usecolortheme{wolverine}
+% title and author
+\title{FParsec}
+\author{Tom Gebert}
+
+% document
+\begin{document}
+%\titlegraphic{\includegraphics[scale=.1]{vim.png}}
+\frame{\titlepage}
+\begin{frame} {Parsing}
+There is about four hundred billion different ways to parse things, and philosophies that follow from each. 
+\begin{itemize}
+    \item Pros and cons to each
+    \item Different levels of difficulty
+    \item Different performance characteristics
+\end{itemize}
+  
+\end{frame}
+\begin{frame} {Why is this an important discussion?}
+    
+    \begin{itemize}
+    	\item Parsing logic tends to be one-off. 
+    	\item Simple things end up becoming complex. \begin{itemize}
+    		\item See: MEGA If-renderer
+    	\end{itemize}
+    	\item If it's not planned correctly, reuse becomes difficult or impossible. 
+    \end{itemize}
+\end{frame}
+\begin{frame}{What exactly is a Parser Combinator?}
+	A parser combinator is function that parses one thing (e.g. a comma)
+	\begin{itemize}
+	    \item This function can be composed with another function that parses another thing (e.g. a double-quote)
+	    \item These functions can be nested and composed arbitrarily and infinitely. 
+	\end{itemize}
+\end{frame}
+\begin{frame}{What is a FParsec?}
+   FParsec is a port of the Parsec Haskell library to F\#
+   \begin{itemize}
+   	 \item Follows F\# conventions a bit more than Haskell.
+   	 \item Built-in support for strings and streams. 
+   	 \item Very good documentation 
+   	 \item Performance is generally ok.\begin{itemize}
+   	     \item Performance is quite good for parses that aren't recursively deep.
+   	     \item Potentially exponential time, though FParsec combats this by aggressively memoizing
+   	 \end{itemize}
+   \end{itemize}
+\end{frame}
+\begin{frame}{What is a FParsec?}
+DEMO
+\end{frame}
+
+
+\end{document}
